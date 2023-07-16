@@ -23,30 +23,17 @@ void setup() {
   }
 }
 
-void myDelay(int amount) {
-  while (amount > 0) {
-    for (int i = 0; i < 16; i++) {
-      if (buttonState[i]) {
-        soundState += (i + 5) * 10;
-      }
-    }
-    analogWrite(2, soundState & 255);
-    delay(1);
-    amount--;
-  }
-}
-
 void loop() {
   digitalWrite(6, HIGH);
-  myDelay(1);
+  delay(1);
   digitalWrite(6, LOW);
-  myDelay(1);
+  delay(1);
   for (int i = 0; i < 16; i++) {
     buttonState[i] = digitalRead(5) == LOW;
     digitalWrite(7, LOW);
-    myDelay(1);
+    delay(1);
     digitalWrite(7, HIGH);
-    myDelay(1);
+    delay(1);
   }
   Serial.write(
     (buttonState[0] ? 1 : 0) +
@@ -65,7 +52,4 @@ void loop() {
     (buttonState[11] ? 32 : 0) +
     128
   );
-  myDelay(10);
-
-  myDelay(500);
 }
