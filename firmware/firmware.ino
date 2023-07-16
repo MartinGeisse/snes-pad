@@ -43,7 +43,7 @@ void loop() {
   myDelay(1);
   for (int i = 0; i < 16; i++) {
     buttonState[i] = digitalRead(5) == LOW;
-    // Serial.print(buttonState ? "#" : "-");
+    Serial.print(buttonState[i] ? "#" : "-");
     digitalWrite(7, LOW);
     myDelay(1);
     digitalWrite(7, HIGH);

@@ -85,8 +85,7 @@ impl SerialConnection {
 }
 
 pub struct ButtonState {
-    pub pressed: [bool; 14],
-    pub joysticks: [u16; 4],
+    pub pressed: [bool; 16],
 }
 
 impl ButtonState {
