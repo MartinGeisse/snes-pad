@@ -25,15 +25,15 @@ void setup() {
 
 void loop() {
   digitalWrite(6, HIGH);
-  delay(1);
+  delayMicroseconds(20);
   digitalWrite(6, LOW);
-  delay(1);
+  delayMicroseconds(20);
   for (int i = 0; i < 16; i++) {
     buttonState[i] = digitalRead(5) == LOW;
     digitalWrite(7, LOW);
-    delay(1);
+    delayMicroseconds(20);
     digitalWrite(7, HIGH);
-    delay(1);
+    delayMicroseconds(20);
   }
   Serial.write(
     (buttonState[0] ? 1 : 0) +
